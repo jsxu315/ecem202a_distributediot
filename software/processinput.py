@@ -16,6 +16,8 @@ while should_run:
         # TODO 
 
     # Process mic data and produce a label (ML)
+        # Yaqi's code to produce a label from the mic data 
+
     # Dummy data 
     new_mic_event = True
     mic_label = 'person_talking'
@@ -33,6 +35,8 @@ while should_run:
     # Sample camera data 
         # TODO 
     # Process camera data and produce a label (ML)
+        # Yaqi's code to produce a label from the camera data 
+
     # Dummy data    
     new_camera_event = True
     camera_label = 'tall_person_seen'
