@@ -15,8 +15,9 @@ while should_run:
     # Sample mic data 
         # TODO 
 
-    # Process mic data and produce a label (ML)
-        # Yaqi's code to produce a label from the mic data 
+    # Process mic data and produce a label and a vector (ML)
+        # Yaqi's code to produce a label and a vector from the mic data 
+
 
     # Dummy data 
     new_mic_event = True
@@ -34,8 +35,8 @@ while should_run:
 
     # Sample camera data 
         # TODO 
-    # Process camera data and produce a label (ML)
-        # Yaqi's code to produce a label from the camera data 
+    # Process camera data and produce a label and a vector (ML)
+        # Yaqi's code to produce a label and a vector from the camera data 
 
     # Dummy data    
     new_camera_event = True
