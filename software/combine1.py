@@ -13,7 +13,7 @@ from mediapipe.tasks.python import audio
 import sys
 
 # Add Hailo library path
-sys.path.append("/home/pi/my_project_env_copy/project1/hailo-rpi5-examples/basic_pipelines")
+sys.path.append("/home/pi4/my_project_env/project1/hailo-rpi5-examples/basic_pipelines")
 
 # Import hailo and Hailo-specific utilities
 import hailo
@@ -23,6 +23,8 @@ from detection_pipeline import GStreamerDetectionApp
 
 # imports from other file
 import redis
+from rediscluster import RedisCluster
+
 
 
 # Base directories for outputs
@@ -34,7 +36,7 @@ os.makedirs(JSON_SAVE_DIR, exist_ok=True)
 Gst.init(None)
 
 # Audio classification parameters
-MODEL_PATH = "/home/pi/my_project_env_copy/project1/mediapipe-samples/examples/audio_classifier/raspberry_pi/yamnet.tflite"
+MODEL_PATH = "/home/pi4/my_project_env/project1/mediapipe-samples/examples/audio_classifier/raspberry_pi/yamnet.tflite"
 MAX_RESULTS = 5
 OVERLAPPING_FACTOR = 0.5
 SAMPLE_RATE = 16000
@@ -123,7 +125,7 @@ def app_callback(pad, info, user_data):
         return Gst.PadProbeReturn.OK
 
     current_time = time.time()
-    if current_time - user_data.last_event_time >= 30:  # Trigger every 30 seconds
+    if current_time - user_data.last_event_time >= 10:  # Trigger every 30 seconds
         user_data.last_event_time = current_time
         print("Processing Hailo detection and recording audio...")
 
@@ -177,7 +179,10 @@ def app_callback(pad, info, user_data):
         if client is None: # Connect to the database if we haven't already 
             # NOTE: check the port and host
             print("!!!!!!!!!!!!!! client is None")
-            client = redis.Redis(host="localhost", port=6379, decode_responses=True)
+            #client = redis.Redis(host="localhost", port=6379, decode_responses=True)
+            startup_nodes = [{"host": "localhost", "port": "6379"}]
+            client = RedisCluster(startup_nodes=startup_nodes, decode_responses=True)
+
         else:
             print("Have client")
             
@@ -197,4 +202,3 @@ if __name__ == "__main__":
     user_data = UserAppCallback()
     app = GStreamerDetectionApp(app_callback, user_data)
     app.run()
-
