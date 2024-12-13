@@ -15,5 +15,5 @@ Results: TBD
 
 * [Proposal](proposal)
 * [Midterm Checkpoint Presentation Slides](https://docs.google.com/presentation/d/1FnyzDtgjOtIwzm3ZAPmfm1_xH2ywoqEGA7hYzbvL638/edit?usp=sharing)
-* [Final Presentation Slides](http://)
+* [Final Presentation Slides](https://docs.google.com/presentation/d/16QAUWB5lgkDse2qqXDBuBWtdzMkf59NhxkH5aq5M7S8/edit#slide=id.p1)
 * [Final Report](report)
