@@ -14,4 +14,4 @@ We implement a minimal setup of multiple nodes on one Raspberry Pi to test the a
 
 
 # Report 
-* [Final [Report](https://github.com/jsxu315/ecem202a_distributediot/blob/main/docs/report.md)
+* [Final Report](https://github.com/jsxu315/ecem202a_distributediot/blob/main/docs/report.md)
